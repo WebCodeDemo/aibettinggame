@@ -1,0 +1,53 @@
+/* CSS styles for the betting game */
+
+body {
+  background-color: #191919; /* dark background */
+  color: #fff; /* white text */
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em; /* large font size */
+  text-shadow: 2px 2px #ff0066; /* pink neon text shadow */
+}
+
+p {
+  font-size: 1.5em; /* medium font size */
+  margin: 20px 0;
+}
+
+/* styling for the select element */
+select {
+  background-color: #ff0066; /* pink neon background */
+  color: #fff; /* white text */
+  font-size: 1.5em; /* medium font size */
+  padding: 10px;
+  border: none; /* no border */
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 2px 2px #ff0066; /* pink neon text shadow */
+}
+
+/* styling for the input element */
+input {
+  background-color: #ff0066; /* pink neon background */
+  color: #fff; /* white text */
+  font-size: 1.5em; /* medium font size */
+  padding: 10px;
+  border: none; /* no border */
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 2px 2px #ff0066; /* pink neon text shadow */
+  text-align: center;
+}
+
+/* styling for the button element */
+button {
+  background-color: #ff0066; /* pink neon background */
+  color: #fff; /* white text */
+  font-size: 1.5em; /* medium font size */
+  padding: 10px;
+  border: none; /* no border */
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 2px 2px #ff0066; /* pink neon text shadow */
+  cursor: pointer; /* hand cursor */
+}

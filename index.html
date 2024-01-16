@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Betting Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Welcome to the Betting Game</h1>
+    <p>You have $<span id="player-cash"></span></p>
+    <select id="bet-type">
+      <option value="1">Lottery Ticket</option>
+      <option value="2">Steamroller</option>
+      <option value="3">Coin Toss</option>
+      <option value="4">Stock</option>
+    </select>
+    <input type="text" id="wager" placeholder="Enter wager amount">
+    <button id="place-bet" onclick="placeBet()">Place Bet</button>
+    <p id="result"></p>
+
+    <script>
+      let playerCash = 100;
+      document.getElementById("player-cash").innerHTML = playerCash;
+
+      function placeBet() {
+        let betType = document.getElementById("bet-type").value;
+        let wager = parseFloat(document.getElementById("wager").value);
+
+        if (isNaN(wager) || wager <= 0) {
+          alert("Invalid wager amount. Please enter a valid number.");
+          return;
+        }
+
+        if (playerCash < wager) {
+          alert("You do not have enough cash to place this bet.");
+          return;
+        }
+
+        let roll = Math.floor(Math.random() * 100) + 1;
+        let result;
+
+        if (betType === "1") {
+          if (roll <= 82) {
+            result = -wager;
+          } else {
+            result = wager * 10;
+          }
+        } else if (betType === "2") {
+          if (roll <= 94) {
+            result = wager/10;
+          } else {
+            result = -wager;
+          }
+        } else if (betType === "3") {
+          if (roll <= 40) {
+            result = -wager;
+          } else {
+            result = wager;
+          }
+        } else if (betType === "4") {
+          if (roll <= 13) {
+            result = wager*-.50
+          } else if (roll <= 33) {
+            result = wager*-.25 
+          } else if (roll <= 53) {
+            result = wager
+          } else if (roll <= 73) {
+            result = wager*.25 
+          } else {
+            result = wager*.50 
+          }
+        } else {
+          alert("Invalid bet type. Please choose 1, 2, 3 or 4.");
+          return;
+        }
+
+        playerCash += result;
+        document.getElementById("player-cash").innerHTML = playerCash.toFixed(2);
+        document.getElementById("result").innerHTML = "You won/lost $" + result.toFixed(2);
+      }
+    </script>
+</body>
+</html>
