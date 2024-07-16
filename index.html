@@ -1,82 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betting Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <h1>Welcome to the Betting Game</h1>
-    <p>You have $<span id="player-cash"></span></p>
-    <select id="bet-type">
-      <option value="1">Lottery Ticket</option>
-      <option value="2">Steamroller</option>
-      <option value="3">Coin Toss</option>
-      <option value="4">Stock</option>
-    </select>
-    <input type="text" id="wager" placeholder="Enter wager amount">
-    <button id="place-bet" onclick="placeBet()">Place Bet</button>
-    <p id="result"></p>
+    <p>You have $<span id="player-cash">1000</span></p>
+    
+    <div class="bet-grid">
+        <div class="bet-header">
+            <div>Amount</div>
+            <div>Lottery</div>
+            <div>Steamroller</div>
+            <div>Coin Toss</div>
+            <div>Stock</div>
+        </div>
+        <div class="bet-row">
+            <div class="bet-amount">$10</div>
+            <button class="bet-button" data-type="lottery" data-amount="10">Bet</button>
+            <button class="bet-button" data-type="steamroller" data-amount="10">Bet</button>
+            <button class="bet-button" data-type="coin-toss" data-amount="10">Bet</button>
+            <button class="bet-button" data-type="stock" data-amount="10">Bet</button>
+        </div>
+        <!-- Repeat the bet-row div for $25, $50, $100, $200, $500 -->
+        <div class="bet-row">
+            <div class="bet-amount">Custom</div>
+            <input type="number" class="custom-amount" placeholder="Enter amount">
+            <button class="bet-button" data-type="lottery" data-amount="custom">Bet</button>
+            <button class="bet-button" data-type="steamroller" data-amount="custom">Bet</button>
+            <button class="bet-button" data-type="coin-toss" data-amount="custom">Bet</button>
+            <button class="bet-button" data-type="stock" data-amount="custom">Bet</button>
+        </div>
+    </div>
 
-    <script>
-      let playerCash = 100;
-      document.getElementById("player-cash").innerHTML = playerCash;
-
-      function placeBet() {
-        let betType = document.getElementById("bet-type").value;
-        let wager = parseFloat(document.getElementById("wager").value);
-
-        if (isNaN(wager) || wager <= 0) {
-          alert("Invalid wager amount. Please enter a valid number.");
-          return;
-        }
-
-        if (playerCash < wager) {
-          alert("You do not have enough cash to place this bet.");
-          return;
-        }
-
-        let roll = Math.floor(Math.random() * 100) + 1;
-        let result;
-
-        if (betType === "1") {
-          if (roll <= 82) {
-            result = -wager;
-          } else {
-            result = wager * 10;
-          }
-        } else if (betType === "2") {
-          if (roll <= 94) {
-            result = wager/10;
-          } else {
-            result = -wager;
-          }
-        } else if (betType === "3") {
-          if (roll <= 40) {
-            result = -wager;
-          } else {
-            result = wager;
-          }
-        } else if (betType === "4") {
-          if (roll <= 13) {
-            result = wager*-.50
-          } else if (roll <= 33) {
-            result = wager*-.25 
-          } else if (roll <= 53) {
-            result = wager
-          } else if (roll <= 73) {
-            result = wager*.25 
-          } else {
-            result = wager*.50 
-          }
-        } else {
-          alert("Invalid bet type. Please choose 1, 2, 3 or 4.");
-          return;
-        }
-
-        playerCash += result;
-        document.getElementById("player-cash").innerHTML = playerCash.toFixed(2);
-        document.getElementById("result").innerHTML = "You won/lost $" + result.toFixed(2);
-      }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
