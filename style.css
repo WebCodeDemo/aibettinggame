@@ -1,53 +1,88 @@
 /* CSS styles for the betting game */
 
 body {
-  background-color: #191919; /* dark background */
-  color: #fff; /* white text */
-  font-family: Arial, sans-serif;
-  text-align: center;
+    background-color: #191919;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 h1 {
-  font-size: 3em; /* large font size */
-  text-shadow: 2px 2px #ff0066; /* pink neon text shadow */
+    font-size: 3em;
+    text-shadow: 2px 2px #ff0066;
 }
 
 p {
-  font-size: 1.5em; /* medium font size */
-  margin: 20px 0;
+    font-size: 1.5em;
+    margin: 20px 0;
 }
 
-/* styling for the select element */
-select {
-  background-color: #ff0066; /* pink neon background */
-  color: #fff; /* white text */
-  font-size: 1.5em; /* medium font size */
-  padding: 10px;
-  border: none; /* no border */
-  border-radius: 10px; /* rounded corners */
-  box-shadow: 2px 2px #ff0066; /* pink neon text shadow */
+.bet-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-/* styling for the input element */
-input {
-  background-color: #ff0066; /* pink neon background */
-  color: #fff; /* white text */
-  font-size: 1.5em; /* medium font size */
-  padding: 10px;
-  border: none; /* no border */
-  border-radius: 10px; /* rounded corners */
-  box-shadow: 2px 2px #ff0066; /* pink neon text shadow */
-  text-align: center;
+.bet-header {
+    display: contents;
 }
 
-/* styling for the button element */
-button {
-  background-color: #ff0066; /* pink neon background */
-  color: #fff; /* white text */
-  font-size: 1.5em; /* medium font size */
-  padding: 10px;
-  border: none; /* no border */
-  border-radius: 10px; /* rounded corners */
-  box-shadow: 2px 2px #ff0066; /* pink neon text shadow */
-  cursor: pointer; /* hand cursor */
+.bet-header > div {
+    background-color: #ff0066;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bet-row {
+    display: contents;
+}
+
+.bet-amount {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bet-button {
+    background-color: #ff0066;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px #ff0066;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bet-button:hover {
+    background-color: #ff3385;
+}
+
+.custom-amount {
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .bet-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .bet-header > div:first-child,
+    .bet-amount {
+        grid-column: span 3;
+    }
 }
