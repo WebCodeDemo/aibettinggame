@@ -82,7 +82,8 @@ p {
     }
     
     .bet-header > div:first-child,
-    .bet-amount {
+    .bet-amount,
+    .custom-amount {
         grid-column: span 3;
     }
 }
